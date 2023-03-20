@@ -4,6 +4,15 @@ arrowIcons = document.querySelectorAll(".wrapper i");
 
 let isDragstart = false, prevPageX, prevScrollLeft;
 
+function aggiungiAlCarrello() {
+    var prodotto = document.getElementById("prodotti").value;
+    var quantita = document.getElementById("quantita").value;
+    var carrello = document.getElementById("carrello");
+    
+    var prodottoDaAggiungere = document.createElement("li");
+    prodottoDaAggiungere.textContent = quantita + " x " + prodotto;
+    carrello.appendChild(prodottoDaAggiungere);
+}
 
 
 const showHideIcons = () => {
