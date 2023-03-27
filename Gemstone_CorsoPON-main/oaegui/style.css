@@ -23,6 +23,16 @@ title
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
 }
+
+.profile img
+{
+    align-content: center;
+    justify-content: center;
+    height: 340px;
+    object-fit: cover;
+    margin-left: 15px;
+    width: calc(100% / 5);
+}
 p
 {
     display: flex;
