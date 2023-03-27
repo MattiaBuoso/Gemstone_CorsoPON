@@ -76,6 +76,69 @@ nav
     background: #404040;
 }
 
+.nav-list > li
+{
+    margin: 0 1rem;
+    overflow: hidden;
+}
+
+.navlist-toggle
+{
+    display: none;
+    height: 100%;
+    width: 30px;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#toggle
+{
+    display: none;
+}
+
+.navlist-toggle, 
+.navlist-toggle::before,
+.navlist-toggle::after
+{
+    display: block;
+    background-color: #fff;
+    position: absolute;
+    height: 4px;
+    width: 30px;
+    transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+    border-radius: 2px;
+}
+
+#toggle:checked + .navlist-toggle .navlist-toggle::before
+{
+    margin-top: 0px;
+    transform: rotate(405deg);
+}
+
+#toggle:checked + .nav-list-toggle .navlist
+{
+    background: rgba(255, 255, 255, 0);
+}
+
+#toggle:checked + .navlist-toggle .navlist-toggle::after
+{
+    margin-top: 0px;
+    transform: rotate(-405deg);
+}
+
+.navlist-toggle::before
+{
+    content: '';
+}
+
+.navlist-toggle::after
+{
+    content: '';
+    margin-top: 8px;
+}
+
 nav .logo
 {
     color: #fff;
@@ -109,7 +172,7 @@ nav .nav-list .nav-link
     font-weight: 500;
 }
 
-nav .navbar-toggler
+nav .navbar-toggle
 {
     display: none;
     height: min-content;
@@ -117,7 +180,7 @@ nav .navbar-toggler
     cursor: pointer;
 }
 
-nav .navbar-toggler .bar
+nav .navbar-toggle .bar
 {
     width: 40px;
     height: 5px;
@@ -125,39 +188,6 @@ nav .navbar-toggler .bar
     background: #fff;
     border-radius: 10%;
     transition: .4s;
-}
-
-input
-{
-    display: none;
-
-}
-
-input:checked ~ nav .nav-list
-{
-    transform: translateY(0);
-}
-
-input:checked ~ nav ,.navbar-toggler
-{
-    margin-top: 35px;
-
-}
-
-input:checked ~ nav ,.navbar-toggler .bar:nth-child(1)
-{
-    position: absolute;
-    transform: rotate(45deg);
-}
-
-input:checked ~ nav ,.navbar-toggler .bar:nth-child(2)
-{
-    display: none;
-}
-
-input:checked ~ nav ,.navbar-toggler .bar:nth-child(3)
-{
-    transform: rotate(-45deg);
 }
 
 .wrapper
@@ -229,9 +259,7 @@ p
 {
     align-items: center;
     justify-content: center;
-    
     font-family: 'Poppins', Courier, monospace;
-    
     z-index: 10000;
 }
 
@@ -248,16 +276,61 @@ h1
     .carousel img
     {
         width: calc(100% / 2);
-    }    
-
-    nav
+    }  
+    
+    .nav-toggle
     {
-        padding: 0 2rem;
+        display: flex;
     }
 
-    nav .nav-list .nav-item
+    .nav-list
     {
-        padding: 0 20px;
+        position: absolute;
+        top: 10;
+        margin-top: 50px;
+        left: 0;
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        align-items: left;
+        z-index: 10000;
+        background: #404040;
+    }
+
+    #nav-toggle ~ .nav-item
+    {
+        height: 0;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    #nav-toggle:checked ~ .nav-item
+    {
+        border: 1px solid #fff;
+        height: 2.5em;
+        padding: 0.5em;
+        transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+        z-index: 10000;
+    }
+
+    .nav-toggle > li .nav-item
+    {
+        display: flex;
+        justify-content: right;
+        margin: 0;
+        padding: 0.5em 0;
+        width: 100%;
+        color: white;
+        background-color: #fff;
+        z-index: 10000;
+    }
+
+    .nav-item>:not(:last-child)
+    {
+        border-bottom: 1px solid #fff;
+        
     }
 }
 
@@ -267,27 +340,4 @@ h1
     {
         width: 100%;
     }    
-
-    nav .nav-list
-    {
-        display: grid;
-        position: absolute;
-        background: #404040;
-        width: 100%;
-        top: 75px;
-        left: 0;
-        transform: translateY(-100%);
-        z-index: -1;
-        transition: .6s;
-    }
-
-    nav .nav-list .nav-item
-    {
-        padding-left: 35px;
-    }
-
-    nav .navbar-toggler
-    {
-        display: grid !important;
-    }
 }
