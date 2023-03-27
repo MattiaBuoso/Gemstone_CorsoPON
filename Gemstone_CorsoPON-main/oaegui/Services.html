@@ -1,0 +1,54 @@
+<!DOCTYPE hml>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta https- equiv="X-UA-Compatible" content=" IE= edge">
+    <meta name = "viewport" content="width = device-width, initial-scale = 1.0">
+    <title>Gemstone</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <script src="script.js" defer></script>
+</head>
+<input type="checkbox" id ="toggle">
+<nav>
+    <a class = "logo">GEMSTONE</a>
+    <label class="nav-toggler" for="toggle"></label>
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+        <ul class ="nav-list">
+            <li class ="nav-item"><a href = "index.html" class="nav-link">Home</a></li>
+            <li class ="nav-item"><a href = "About.html"class="nav-link">About</a></li>
+            <li class ="nav-item"><a href = "Services.html"class="nav-link">Services</a></li>
+            <li class ="nav-item"><a href = "Jewerly.html"class="nav-link">Jewelry</a></li>
+            <li class ="nav-item"><a href = "Shop.html"class="nav-link">Shop</a></li>
+        </ul>
+</nav>
+
+    <h1>Benvenuti nel nostro Shop Online</h1>
+    
+    <h2>Prodotti</h2>
+    <ul>
+      <li>Prodotto 1 - Prezzo: $50</li>
+      <li>Prodotto 2 - Prezzo: $75</li>
+      <li>Prodotto 3 - Prezzo: $100</li>
+    </ul>
+    
+    <h2>Carrello</h2>
+    <ul id="carrello">
+      <li>Carrello vuoto</li>
+    </ul>
+    
+    <h2>Aggiungi al carrello</h2>
+    <form>
+      <select id="prodotti">
+        <option value="prodotto1">Prodotto 1</option>
+        <option value="prodotto2">Prodotto 2</option>
+        <option value="prodotto3">Prodotto 3</option>
+      </select>
+      <input type="number" id="quantita" min="1" max="10" value="1">
+      <button type="button" onclick="aggiungiAlCarrello()">Aggiungi al carrello</button>
+    </form>
+  </body>
+
